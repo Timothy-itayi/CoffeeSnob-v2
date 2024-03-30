@@ -70,10 +70,11 @@ export default function App() {
         //   activeTintColor: 'blue', // Change the color of the active tab icon
         //   inactiveTintColor: 'gray', // Change the color of the inactive tab icon
         // }}
-      >
+      > 
+      <Tab.Screen name="SignUp" component={SignUp} />
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Profile" component={UserProfile} />
-        <Tab.Screen name="SignUp" component={SignUp} />
+       
       </Tab.Navigator>
     </NavigationContainer>
   );

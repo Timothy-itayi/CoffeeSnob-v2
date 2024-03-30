@@ -16,7 +16,7 @@ export const cafes = [
     },
     {
         id: 2,
-        image: require('../assets/cafeImages/botanic.jpeg'),
+        image: require('../assets/cafeImages/rustic.jpeg'),
         name: 'Barnwood Bistro',
         description: 'Rated for their atmosphere',
         rating: 3.5, 
@@ -76,7 +76,7 @@ export const cafes = [
     {
         id: 6,
         image: require('../assets/cafeImages/hip.jpeg'),
-        name: 'Archie,s Cafe',
+        name: 'Archies Cafe',
         description: 'Rated for their vibe',
         rating: 4.6, 
         totalReviews: '(111)',

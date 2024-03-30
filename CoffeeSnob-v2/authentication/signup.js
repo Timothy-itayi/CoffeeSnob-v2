@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-// import firebase from 'firebase';
+
+ // import firebase from 'firebase';
 // import 'firebase/auth';
 // import Constants from 'expo-constants';
 
@@ -28,24 +29,25 @@ const SignUp = () => {
   };
 
   return (
+
+    
+
     <View style={styles.container}>
-      <Text style={styles.title}>Sign Up</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        onChangeText={setEmail}
-        value={email}
-        keyboardType="email-address"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        onChangeText={setPassword}
-        value={password}
-        secureTextEntry
-      />
-      <Button title="Sign Up" onPress={handleSignUp} />
-    </View>
+        <Text style={styles.title}>Sign Up</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          onChangeText={setEmail}
+          value={email}
+          keyboardType="email-address" />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          onChangeText={setPassword}
+          value={password}
+          secureTextEntry />
+        <Button title="Sign Up" onPress={handleSignUp} />
+      </View>
   );
 };
 
