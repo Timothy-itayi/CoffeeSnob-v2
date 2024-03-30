@@ -1,12 +1,14 @@
 import React, {memo} from 'react';
 import { View , Text , Image } from 'react-native';
-import styles from '../appStyles';
+import {styles} from '../appStyles';
 import { AirbnbRating } from 'react-native-ratings';
-
+import {cafes} from '../data/cafeData'
 
 
 const CafeCard = ({ cafe }) => {
+
     return (
+        
         <View style={styles.cardContainer}>
              
                 <Image source={cafe.image} style={styles.cardImage} />
@@ -36,7 +38,7 @@ const CafeCard = ({ cafe }) => {
                 <Text style={styles.cardLocation}>{cafe.street},{cafe.city}</Text>
                 <Text style={styles.cardLocation}>{cafe.country}</Text>
                 <View style={styles.hoursContainer}>
-                <Text style={[styles.cardOpeningHours, { color: cafe.openingHours === 'Open' ? '#637B00' : '#AD000A'}]}>{cafe.openingHours}</Text>
+                <Text style={[styles.cardOpeningHours, { color: cafe.openingHours === 'Open' ? '#637B00' : '#AD000A'}]}>{cafes.openingHours}</Text>
                 <Text style={styles.space}></Text>
                 <Text style={styles.cardCloses}>{cafe.closes}</Text>
                 </View>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, Text} from 'react-native';
-import styles from '../appStyles';
+import {styles} from '../appStyles';
 
 const CustomButton = ({ onPress, title, style}) => {
     return (

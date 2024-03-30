@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
+
+export const styles = {
 ////////  APP.js //////
 
     statusBar: {
@@ -212,4 +212,4 @@ rowContainer: {
        backgroundColor: '#fff',
         paddingBottom: 200,
     },
-});
+};
