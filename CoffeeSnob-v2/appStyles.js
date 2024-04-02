@@ -2,6 +2,26 @@
 
 export const styles = {
 ////////  APP.js //////
+Signupcontainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  input: {
+    width: '80%',
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 10,
+    paddingHorizontal: 10,
+  },
 
     statusBar: {
         style: 'dark', // Default style
@@ -19,7 +39,7 @@ export const styles = {
     headerTitleContainer: {
   
         marginVertical: 0,
-        marginTop: 0,
+        marginBottom: 50,
         paddingBottom: 0,
         paddingTop: 4,
        paddingLeft: 5,
@@ -31,7 +51,7 @@ export const styles = {
         fontSize: 30,
         paddingLeft: 16,
        fontFamily: 'SlingBold',
-       letterSpacing: -1, 
+       letterSpacing: 0, 
     },
 ///////Modal Selector STYLING /////////////// 
 HeaderRowContainer: {

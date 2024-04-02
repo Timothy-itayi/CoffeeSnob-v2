@@ -1,39 +1,51 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, TextInput} from 'react-native';
+import {styles } from '../appStyles'
+import  HeaderTitle from '../frontend-components/HeaderTitle'
+import {GoogleSignin , GoogleSigninButton, statusCodes } from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
 
- // import firebase from 'firebase';
-// import 'firebase/auth';
-// import Constants from 'expo-constants';
-
-// TODO: Replace the following with your app's Firebase project configuration
-// const firebaseConfig = {
-//   apiKey: "YOUR_API_KEY",
-//   authDomain: "YOUR_AUTH_DOMAIN",
-//   projectId: "YOUR_PROJECT_ID",
-//   storageBucket: "YOUR_STORAGE_BUCKET",
-//   messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-//   appId: "YOUR_APP_ID",
-// };
-
-// Initialize Firebase
-// if (!firebase.apps.length) {
-//   firebase.initializeApp(Constants.manifest.extra.firebase);
-// }
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleSignUp = () => {
-    // TODO: Implement sign-up logic with Firebase here
+useEffect(() => {
+  GoogleSignin.configure({
+    webClientId: '609263451524-d3ovn2pb6k5bkddijcnan4vj9pq04vgs.apps.googleusercontent.com'
+  });
+}, []);
+
+  const handleGoogleSignIn = async () => {
+   try {
+    await GoogleSignin.hasPlayServices();
+    const { idToken } = await GoogleSignin.signIn();
+
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+    await auth().signiInwithCredential(googleCredential);
+
+   } catch (error){
+    if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+
+    } else if (error.code === statusCodes.IN_PROGRESS) {
+
+    } else {
+
+      console.error('Google Sign-In error', error);
+    }
   };
+
+  
 
   return (
 
+ 
+    <View style={styles.Signupcontainer}>
+      <View>
+      <HeaderTitle   style={styles.headerTitleContainer}  >
+          <Text style={styles.headerText}>Coffee Snob.</Text>
+        </HeaderTitle>
+      </View>
     
-
-    <View style={styles.container}>
-        <Text style={styles.title}>Sign Up</Text>
         <TextInput
           style={styles.input}
           placeholder="Email"
@@ -46,49 +58,14 @@ const SignUp = () => {
           onChangeText={setPassword}
           value={password}
           secureTextEntry />
-        <Button title="Sign Up" onPress={handleSignUp} />
+     
+        <GoogleSigninButton color={GoogleSigninButton.Color.Dark} size={GoogleSigninButton.Size.Wide} onPress={handleGoogleSignIn} />
       </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  input: {
-    width: '80%',
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 10,
-    paddingHorizontal: 10,
-  },
-});
+}
 
 export default SignUp;
 
 
 
-// { app.json 
-//   "expo": {
-//     "extra": {
-//       "firebase": {
-//         "apiKey": "YOUR_API_KEY",
-//         "authDomain": "YOUR_AUTH_DOMAIN",
-//         "projectId": "YOUR_PROJECT_ID",
-//         "storageBucket": "YOUR_STORAGE_BUCKET",
-//         "messagingSenderId": "YOUR_MESSAGING_SENDER_ID",
-//         "appId": "YOUR_APP_ID"
-//       }
-//     }
-//   }
-// }
