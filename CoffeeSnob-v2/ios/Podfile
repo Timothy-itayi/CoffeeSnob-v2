@@ -1,4 +1,6 @@
 # Resolve react_native_pods.rb with node to allow for hoisting
+use_modular_headers!
+
 require Pod::Executable.execute_command('node', ['-p',
   'require.resolve(
     "react-native/scripts/react_native_pods.rb",
@@ -38,7 +40,8 @@ target 'CoffeeSnobv2' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-
+  pod 'Firebase/Analytics'
+  
   target 'CoffeeSnobv2Tests' do
     inherit! :complete
     # Pods for testing
